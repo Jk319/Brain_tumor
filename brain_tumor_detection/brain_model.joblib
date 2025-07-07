@@ -1,0 +1,2 @@
+import joblib
+joblib.dump(model, "brain_model.joblib")
