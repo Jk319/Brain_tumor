@@ -1,0 +1,6 @@
+
+
+streamlit
+scikit-learn
+pillow
+numpy
