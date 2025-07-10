@@ -2,7 +2,7 @@ from joblib import load
 import cv2
 import numpy as np
 
-model = load("model.joblib")  # or whatever your model path is
+model = load("model.pkl") # or whatever your model path is
 
 def predict_image(path):
     img = cv2.imread(path)
