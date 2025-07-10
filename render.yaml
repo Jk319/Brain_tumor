@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: brain-tumor-detector
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    plan: free
