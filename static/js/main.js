@@ -9,7 +9,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     return;
   }
 
-  // Show image preview
+  // Show preview
   const preview = document.getElementById('preview');
   preview.src = URL.createObjectURL(file);
 
@@ -25,7 +25,16 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     });
 
     const data = await res.json();
-    document.getElementById('result').innerText = "🧾 Result: " + data.prediction;
+
+    // ✅ FIX: Check if 'prediction' key is present
+    if (data.prediction) {
+      document.getElementById('result').innerText = "🧾 Result: " + data.prediction;
+    } else if (data.error) {
+      document.getElementById('result').innerText = "❌ Error: " + data.error;
+    } else {
+      document.getElementById('result').innerText = "❌ Unexpected response from server.";
+    }
+
   } catch (err) {
     document.getElementById('result').innerText = "❌ Error during prediction.";
   }
