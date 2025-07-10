@@ -1,33 +1,32 @@
-document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+document.getElementById('uploadForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const fileInput = document.getElementById("imageUpload");
+  const fileInput = document.getElementById('imageFile');
   const file = fileInput.files[0];
+
   if (!file) {
-    alert("Please select an image.");
+    alert("Please select an image file!");
     return;
   }
 
-  const preview = document.getElementById("preview");
+  // Show image preview
+  const preview = document.getElementById('preview');
   preview.src = URL.createObjectURL(file);
-  preview.style.display = "block";
-
-  const resultDiv = document.getElementById("result");
-  resultDiv.innerText = "⏳ Predicting...";
 
   const formData = new FormData();
-  formData.append("file", file);
+  formData.append('file', file);
+
+  document.getElementById('result').innerText = "⏳ Processing...";
 
   try {
-    const response = await fetch("/predict", {
-      method: "POST",
-      body: formData,
+    const res = await fetch('/predict', {
+      method: 'POST',
+      body: formData
     });
 
-    const data = await response.json();
-    resultDiv.innerText = `🧾 Result: ${data.prediction}`;
-  } catch (error) {
-    resultDiv.innerText = "❌ Error in prediction.";
-    console.error("Prediction error:", error);
+    const data = await res.json();
+    document.getElementById('result').innerText = "🧾 Result: " + data.prediction;
+  } catch (err) {
+    document.getElementById('result').innerText = "❌ Error during prediction.";
   }
 });
