@@ -12,7 +12,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 input[type="file"] {
@@ -40,17 +40,19 @@ button:hover {
   background-color: #009f85;
 }
 
+/* ✅ Final Preview Box Styling */
 #preview {
   max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
+  max-height: 300px;
+  margin-top: 15px;
   border-radius: 10px;
+  display: none; /* Hidden until file is selected */
 }
 
 #result {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: 15px;
 }
 
 footer {
