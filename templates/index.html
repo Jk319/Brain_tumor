@@ -11,15 +11,16 @@
     <h1>🧠 Brain Tumor Detection</h1>
     <p>Upload an MRI scan image to check for a brain tumor.</p>
 
-    <form id="uploadForm">
-      <input type="file" id="imageUpload" name="file" accept="image/*" required>
-      <button type="submit">🔍 Predict</button>
-    </form>
+   <form id="uploadForm" enctype="multipart/form-data" method="POST">
+  <input type="file" id="imageUpload" name="file" accept="image/*" required>
+  <button type="submit">🔍 Predict</button>
+</form>
 
     <div id="result"></div>
-    <div id="preview-box">
-      <img id="preview" />
-    </div>
+<div id="preview-box">
+  <img id="preview" style="max-width: 300px; display: none;" />
+</div>
+
   </div>
 
   <footer>
