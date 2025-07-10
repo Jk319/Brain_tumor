@@ -9,14 +9,14 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     return;
   }
 
-  // Preview the image
+  // Show image preview
   const preview = document.getElementById('preview');
   preview.src = URL.createObjectURL(file);
 
   const formData = new FormData();
   formData.append('file', file);
 
-  document.getElementById('result').innerText = "Processing...";
+  document.getElementById('result').innerText = "⏳ Processing...";
 
   try {
     const res = await fetch('/predict', {
@@ -27,6 +27,6 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
     const data = await res.json();
     document.getElementById('result').innerText = "🧾 Result: " + data.prediction;
   } catch (err) {
-    document.getElementById('result').innerText = "❌ Error predicting result.";
+    document.getElementById('result').innerText = "❌ Error during prediction.";
   }
 });
