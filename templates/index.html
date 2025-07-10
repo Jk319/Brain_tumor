@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brain Tumor Detector</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brain Tumor Detection - Jatin Kushwaha</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
   <div class="container">
     <h1>🧠 Brain Tumor Detection</h1>
-    <p>Upload an MRI scan image to check for a brain tumor.</p>
+    <p>Upload an MRI image to check for brain tumor.</p>
 
-   <form id="uploadForm" enctype="multipart/form-data" method="POST">
-  <input type="file" id="imageUpload" name="file" accept="image/*" required>
-  <button type="submit">🔍 Predict</button>
-</form>
+    <form id="uploadForm">
+      <input type="file" id="imageFile" name="file" accept="image/*" required>
+      <button type="submit">Predict</button>
+    </form>
 
-    <div id="result"></div>
-<div id="preview-box">
-  <img id="preview" style="max-width: 300px; display: none;" />
-</div>
+    <div id="preview-container">
+      <img id="preview" src="" alt="Image Preview" />
+    </div>
 
+    <p id="result">Prediction will appear here...</p>
+    <footer>
+      <p>&copy; 2025 Jatin Kushwaha | All rights reserved</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>Made with ❤️ by <strong>Jatin Kushwaha</strong> | &copy; 2025</p>
-  </footer>
-
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="/static/js/main.js"></script>
 </body>
 </html>
