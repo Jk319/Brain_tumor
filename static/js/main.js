@@ -8,12 +8,10 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     return;
   }
 
-  // Show image preview
   const preview = document.getElementById("preview");
   preview.src = URL.createObjectURL(file);
   preview.style.display = "block";
 
-  // Show loading text
   const resultDiv = document.getElementById("result");
   resultDiv.innerText = "⏳ Predicting...";
 
@@ -23,13 +21,13 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
   try {
     const response = await fetch("/predict", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await response.json();
     resultDiv.innerText = `🧾 Result: ${data.prediction}`;
   } catch (error) {
-    console.error(error);
-    resultDiv.innerText = "❌ Error predicting result. Try again.";
+    resultDiv.innerText = "❌ Error in prediction.";
+    console.error("Prediction error:", error);
   }
 });
