@@ -1,5 +1,6 @@
-Flask
+flask
 joblib
 scikit-learn
 numpy
 opencv-python
+Pillow
