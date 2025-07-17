@@ -12,10 +12,11 @@
     <p>Upload an MRI image to check for brain tumor.</p>
 
     <!-- ✅ Final version with both camera & gallery support -->
-    <form id="uploadForm" enctype="multipart/form-data" method="POST">
-      <input type="file" id="imageFile" name="file" accept="image/*" required>
-      <button type="submit">Predict</button>
-    </form>
+      <form id="uploadForm" enctype="multipart/form-data" method="POST">
+  <input type="file" id="imageFile" name="file" accept="image/*" capture="environment" required>
+  <button type="submit">Predict</button>
+</form>
+
 
     <div id="preview-container">
       <img id="preview" src="" alt="Image Preview" style="max-width: 100%; height: auto;" />
