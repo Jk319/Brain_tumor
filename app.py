@@ -15,7 +15,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        file = request.files['image']
+        file = request.files['file'] 
         img = Image.open(file.stream).convert('L')  # convert to grayscale
         img = img.resize((100, 100))
         img_array = np.array(img).reshape(1, -1)  # shape = (1, 10000)
