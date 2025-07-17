@@ -11,15 +11,13 @@
     <h1>🧠 Brain Tumor Detection</h1>
     <p>Upload an MRI image to check for brain tumor.</p>
 
-    <!-- ✅ ADDED enctype and capture -->
- <form id="uploadForm" enctype="multipart/form-data" method="POST">
-  <input type="file" id="imageFile" name="file" accept="image/*" required>
-  <button type="submit">Predict</button>
-</form>
-
+    <!-- ✅ Final version with both camera & gallery support -->
+    <form id="uploadForm" enctype="multipart/form-data" method="POST">
+      <input type="file" id="imageFile" name="file" accept="image/*" required>
+      <button type="submit">Predict</button>
+    </form>
 
     <div id="preview-container">
-      <!-- ✅ ADDED style for responsive image preview -->
       <img id="preview" src="" alt="Image Preview" style="max-width: 100%; height: auto;" />
     </div>
 
