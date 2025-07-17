@@ -11,16 +11,20 @@
     <h1>🧠 Brain Tumor Detection</h1>
     <p>Upload an MRI image to check for brain tumor.</p>
 
-    <form id="uploadForm">
-      <input type="file" id="imageFile" name="file" accept="image/*" required>
+    <!-- ✅ ADDED enctype and capture -->
+    <form id="uploadForm" enctype="multipart/form-data" method="POST">
+      <!-- ✅ ADDED capture="environment" for mobile camera/gallery support -->
+      <input type="file" id="imageFile" name="file" accept="image/*" capture="environment" required>
       <button type="submit">Predict</button>
     </form>
 
     <div id="preview-container">
-      <img id="preview" src="" alt="Image Preview" />
+      <!-- ✅ ADDED style for responsive image preview -->
+      <img id="preview" src="" alt="Image Preview" style="max-width: 100%; height: auto;" />
     </div>
 
     <p id="result">Prediction will appear here...</p>
+
     <footer>
       <p>&copy; 2025 Jatin Kushwaha | All rights reserved</p>
     </footer>
