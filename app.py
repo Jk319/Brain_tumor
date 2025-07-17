@@ -6,48 +6,47 @@ from PIL import Image
 
 # ✅ Initialize Flask app
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB limit
 
-# ✅ Limit max upload size to 16MB
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
+# ✅ Load the trained model once at startup
+model = joblib.load("model.pkl")  # Ensure model.pkl is in the root directory
 
-# ✅ Load your trained model
-model = joblib.load("model.pkl")  # Make sure model.pkl is in the root or correct path
-
-# ✅ Route for homepage
+# ✅ Homepage route
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# ✅ Route for prediction API
+# ✅ Prediction API
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # ✅ Check if file is present
+        # ✅ Check for image in form-data
         if 'file' not in request.files:
-            return jsonify({'error': 'No file uploaded'})
+            return jsonify({'error': 'No file uploaded'}), 400
 
         file = request.files['file']
         if file.filename == '':
-            return jsonify({'error': 'No selected file'})
+            return jsonify({'error': 'No file selected'}), 400
 
         # ✅ Open and preprocess the image
-        img = Image.open(file.stream).convert('L')   # Convert to grayscale
-        img = img.resize((100, 100))                 # Resize to model input shape
-        img_array = np.array(img).reshape(1, -1)     # Flatten to (1, 10000)
+        img = Image.open(file.stream).convert('L')   # Grayscale
+        img = img.resize((100, 100))                 # Resize to match model input
+        img_array = np.array(img).reshape(1, -1)     # Flatten to 1D
 
-        # ✅ Predict
-        pred = model.predict(img_array)[0]
-        result = 'Tumor Detected' if pred == 1 else 'No Tumor'
+        # ✅ Predict with model
+        prediction = model.predict(img_array)[0]
+        result = "Tumor Detected" if prediction == 1 else "No Tumor"
 
+        # ✅ Return JSON response
         return jsonify({'prediction': result})
 
     except Exception as e:
-        print("❌ Prediction error:", e)
-        return jsonify({'error': str(e)})
+        print("❌ Prediction Error:", e)
+        return jsonify({'error': str(e)}), 500
 
-# ✅ Required for deployment (like Render.com or localhost)
+# ✅ Run the app (for local or Render.com)
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5000))  # Use environment PORT or default 5000
     app.run(host='0.0.0.0', port=port, debug=True)
 
 
