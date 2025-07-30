@@ -1,4 +1,5 @@
-# 🧠 Brain Tumor Detection using Hybrid Logistic Regression from MRI Scans Images
+# Neuro Care
+## 🧠 Brain Tumor Detection using Hybrid Logistic Regression from MRI Scans Images
 
 This project detects brain tumors using MRI images via machine learning. A binary classifier predicts whether a brain scan is tumor-positive or not. It is deployed as a web-based diagnostic tool.
 
