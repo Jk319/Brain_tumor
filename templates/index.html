@@ -3,95 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Brain Tumor Detection</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background: #121212;
-            color: #f0f0f0;
-            text-align: center;
-        }
-        header {
-            background: #1f1f1f;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: #f0f0f0;
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #00ffc8;
-        }
-        h1 {
-            color: #00ffc8;
-            margin-top: 30px;
-        }
-        p {
-            max-width: 600px;
-            margin: auto;
-            font-size: 1.1em;
-        }
-        .container {
-            margin-top: 30px;
-        }
-        .btn {
-            background: #00ffc8;
-            color: #121212;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 6px;
-            margin: 10px;
-        }
-        .btn:hover {
-            background: #00cc9e;
-        }
-        input[type="file"] {
-            margin: 15px 0;
-        }
-        img {
-            max-width: 300px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 15px rgba(0,255,200,0.3);
-        }
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #aaa;
-        }
-    </style>
+    <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h2>NeuroCare</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </nav>
+        <h1>🧠 Brain Tumor Detection</h1>
+        <p>AI-Powered Medical Imaging Analysis</p>
     </header>
 
-    <h1>AI-Powered Brain Tumor Detection</h1>
-    <p>Upload an MRI scan and get instant detection results with high accuracy.</p>
+    <main>
+        <section class="upload-section">
+            <h2>Upload MRI Scan</h2>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" accept="image/*" required>
+                <button type="submit">Analyze Image</button>
+            </form>
+        </section>
 
-    <div class="container">
-        <img src="brain-diagram.png" alt="Brain Tumor Detection Diagram">
-        <br>
-        <button class="btn">Detect Tumor Now</button>
-        <br>
-        <input type="file" id="mriInput">
-        <button class="btn">Upload & Predict</button>
-    </div>
+        <section class="info-section">
+            <h2>About This Tool</h2>
+            <p>
+                This application uses a machine learning model to detect the presence of brain tumors in MRI scans. 
+                Simply upload your image, and the AI will provide a diagnosis within seconds.
+            </p>
+        </section>
+    </main>
 
     <footer>
-        © 2025 Jatin Kushwaha. All rights reserved.
+        <p>© 2025 Brain Tumor Detection | Powered by Machine Learning</p>
     </footer>
 </body>
 </html>
