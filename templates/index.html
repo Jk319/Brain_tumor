@@ -1,166 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Tumor Detection</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(90deg, #3f51b5, #5c6bc0);
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-        .hero-image {
-            display: block;
-            margin: auto;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-        }
-        footer {
-            background: #3f51b5;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .page {
-            display: none;
-        }
-        .active {
-            display: block;
-        }
-        button {
-            background: #3f51b5;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #283593;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Tumor Detection</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <div class="logo">Neuro<span class="highlight">Care</span></div>
+    <nav>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('about')">About</button>
+    </nav>
+  </header>
 
-    <header>
-        <h1>Brain Tumor Detection System</h1>
-        <nav>
-            <a href="#" onclick="showPage('home')">Home</a>
-            <a href="#" onclick="showPage('about')">About Project</a>
-        </nav>
-    </header>
-
-    <!-- Home Page -->
-    <section id="home" class="page active">
-        <img src="diagram.png" alt="Brain Tumor Detection Diagram" class="hero-image">
-        <p>
-            Our AI-powered Brain Tumor Detection tool uses advanced machine learning algorithms
-            to analyze MRI scans and detect the presence of brain tumors with high accuracy.
-        </p>
-        <p>
-            The system is designed to assist doctors and radiologists by providing a second opinion
-            and reducing diagnosis time.
-        </p>
-        <button onclick="showPage('about')">Learn More</button>
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <h1>AI-Powered Brain Tumor Detection</h1>
+      <p>Upload an MRI scan and get instant detection results with high accuracy.</p>
+      <div class="hero">
+        <img src="brain-diagram.png" alt="Brain Tumor Detection Diagram">
+      </div>
+      <button class="cta" onclick="document.getElementById('fileInput').scrollIntoView({behavior:'smooth'})">
+        Detect Tumor Now
+      </button>
+      <div class="upload-area" id="fileInput">
+        <form id="uploadForm" enctype="multipart/form-data" method="POST">
+          <input type="file" name="file" accept="image/*" required>
+          <button type="submit">Upload & Predict</button>
+        </form>
+      </div>
     </section>
 
-    <!-- About Page -->
-    <section id="about" class="page">
-        <h2>About This Project</h2>
-        <p>
-            This Brain Tumor Detection project uses a Machine Learning model trained on MRI scan datasets.
-            It identifies whether the brain scan shows signs of a tumor or not.
-        </p>
-        <p>
-            The model was developed using Python, Flask, and HTML/CSS for the web interface.
-            The tool aims to help in early detection, which is crucial for successful treatment.
-        </p>
-        <button onclick="showPage('home')">Back to Home</button>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About the Project</h2>
+      <p>
+        This project uses a Support Vector Machine trained on MRI images to distinguish between
+        tumor and non-tumor scans. Deployed via Flask and accessible on all devices.
+      </p>
+      <ul>
+        <li>Python, Scikit-learn, Flask backend</li>
+        <li>HTML, CSS, JS frontend with image preview</li>
+        <li>Mobile-friendly upload from camera or gallery</li>
+        <li>Deployed on Render for live demo</li>
+      </ul>
     </section>
+  </main>
 
-    <footer>
-        <p>© 2025 Brain Tumor Detection Project | Developed by Jatin Kushwaha</p>
-    </footer>
+  <footer>
+    © 2025 Jatin Kushwaha. All rights reserved.
+  </footer>
 
-    <script>
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-    </script>
-
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brain Tumor Detection - Jatin Kushwaha</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/brain.png">
-</head>
-
-<body>
-  <div class="container">
-    <h1>🧠 Neuro Care</h1>
-    <h1>Brain Tumor Detection</h1>
-    <p>Upload an MRI image to check for brain tumor.</p>
- -->
-    <!-- ✅ Final version with both camera & gallery support -->
-<!--       <form id="uploadForm" enctype="multipart/form-data" method="POST">
-  <input type="file" id="imageFile" name="file" accept="image/*" capture="environment" required>
-  <button type="submit">Predict</button>
-</form>
-
-
-    <div id="preview-container">
-      <img id="preview" src="" alt="Image Preview" style="max-width: 100%; height: auto;" />
-    </div>
-
-    <p id="result">Prediction will appear here...</p>
-
-    <footer>
-      <p>&copy; 2025 Jatin Kushwaha | All rights reserved</p>
-    </footer>
-  </div>
-
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
-
-
- -->
-
