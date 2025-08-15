@@ -1,4 +1,91 @@
+/* General body styling */
 body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3e3e55);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Title styling with animation */
+h1 {
+    margin-top: 30px;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+/* AI Image Display */
+#ai-image {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* File upload styling */
+input[type="file"] {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #2a2a40;
+    color: #ddd;
+    border: 2px dashed #888;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    background: #444;
+    border-color: #ff8a00;
+}
+
+/* Predict button styling */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Result box */
+#result {
+    margin-top: 25px;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white;
@@ -59,3 +146,5 @@ footer {
   font-size: 0.9rem;
   color: #cccccc;
 }
+
+ */
