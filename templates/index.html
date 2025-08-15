@@ -1,52 +1,126 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧠Neuro Care</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Brain Tumor Detection</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #3f51b5, #5c6bc0);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .hero-image {
+            display: block;
+            margin: auto;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+        }
+        footer {
+            background: #3f51b5;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .page {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        button {
+            background: #3f51b5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #283593;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+
     <header>
         <h1>Brain Tumor Detection System</h1>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Project</a>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About Project</a>
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="section">
+    <!-- Home Page -->
+    <section id="home" class="page active">
         <img src="diagram.png" alt="Brain Tumor Detection Diagram" class="hero-image">
         <p>
             Our AI-powered Brain Tumor Detection tool uses advanced machine learning algorithms
             to analyze MRI scans and detect the presence of brain tumors with high accuracy.
         </p>
+        <p>
+            The system is designed to assist doctors and radiologists by providing a second opinion
+            and reducing diagnosis time.
+        </p>
+        <button onclick="showPage('about')">Learn More</button>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>About the Project</h2>
+    <!-- About Page -->
+    <section id="about" class="page">
+        <h2>About This Project</h2>
         <p>
-            This system leverages deep learning models to provide early and accurate diagnosis of brain tumors.
-            The tool is trained on a large dataset of MRI images and is designed to assist doctors in making
-            faster and more reliable medical decisions.
+            This Brain Tumor Detection project uses a Machine Learning model trained on MRI scan datasets.
+            It identifies whether the brain scan shows signs of a tumor or not.
         </p>
         <p>
-            Developed as a part of a Machine Learning project, the model achieves high accuracy and can
-            differentiate between different tumor types. The system is easy to use and supports both
-            web and mobile access for wider usability.
+            The model was developed using Python, Flask, and HTML/CSS for the web interface.
+            The tool aims to help in early detection, which is crucial for successful treatment.
         </p>
+        <button onclick="showPage('home')">Back to Home</button>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 Brain Tumor Detection Project | Developed by Jatin Kushwaha</p>
     </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">
@@ -89,3 +163,4 @@
 
 
  -->
+
