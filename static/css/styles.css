@@ -1,109 +1,59 @@
-/* ===== Global Styles ===== */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(120deg, #1e3c72, #2a5298);
-  color: white;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+    color: #333;
 }
 
-/* ===== Card Container ===== */
-.container {
-  max-width: 500px;
-  width: 90%;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  backdrop-filter: blur(12px);
-  animation: fadeIn 0.8s ease-in-out;
+/* Header */
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px;
+    text-align: center;
 }
 
-/* ===== Headings ===== */
-.container h1 {
-  margin: 0.3rem 0;
-  font-size: 1.8rem;
-  font-weight: 600;
+header h1 {
+    margin: 0;
 }
 
-.container p {
-  font-size: 0.95rem;
-  color: #dcdcdc;
+nav {
+    margin-top: 10px;
 }
 
-/* ===== File Input ===== */
-input[type="file"] {
-  display: block;
-  margin: 1rem auto;
-  padding: 1rem;
-  background: #ffffff;
-  color: #333;
-  border-radius: 12px;
-  border: 2px dashed #00c9a7;
-  width: 100%;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: 0.3s ease;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
 }
 
-input[type="file"]:hover {
-  border-color: #00f5d4;
+nav a:hover {
+    text-decoration: underline;
 }
 
-/* ===== Button ===== */
-button {
-  padding: 12px 24px;
-  background: linear-gradient(90deg, #00c9a7, #009f85);
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+/* Sections */
+.section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #00e5b0, #00b894);
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-/* ===== Image Preview ===== */
-#preview {
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
-  border-radius: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== Prediction Result ===== */
-#result {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-/* ===== Footer ===== */
+/* Footer */
 footer {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-  color: #bbb;
-}
-
-/* ===== Animations ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
 /* body {
@@ -168,3 +118,4 @@ footer {
 }
 
  */
+
