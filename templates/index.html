@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Tumor Detection</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain Tumor Detection - Jatin Kushwaha</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1>🧠 Brain Tumor Detection</h1>
-        <p>AI-Powered Medical Imaging Analysis</p>
-    </header>
+  <div class="container">
+    <h1>🧠 Neuro Care</h1>
+    <h1>Brain Tumor Detection</h1>
+    <p>Upload an MRI image to check for brain tumor.</p>
 
-    <main>
-        <section class="upload-section">
-            <h2>Upload MRI Scan</h2>
-            <form action="/predict" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" id="file" accept="image/*" required>
-                <button type="submit">Analyze Image</button>
-            </form>
-        </section>
+    <!-- ✅ Camera & Gallery Support -->
+    <form id="uploadForm" enctype="multipart/form-data" method="POST">
+      <input type="file" id="imageFile" name="file" accept="image/*" capture="environment" required>
+      <button type="submit">Predict</button>
+    </form>
 
-        <section class="info-section">
-            <h2>About This Tool</h2>
-            <p>
-                This application uses a machine learning model to detect the presence of brain tumors in MRI scans. 
-                Simply upload your image, and the AI will provide a diagnosis within seconds.
-            </p>
-        </section>
-    </main>
+    <div id="preview-container">
+      <img id="preview" src="" alt="Image Preview" />
+    </div>
+
+    <p id="result">Prediction will appear here...</p>
 
     <footer>
-        <p>© 2025 Brain Tumor Detection | Powered by Machine Learning</p>
+      <p>&copy; 2025 Jatin Kushwaha | All rights reserved</p>
     </footer>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
